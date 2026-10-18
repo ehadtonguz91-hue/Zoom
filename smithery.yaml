@@ -1,0 +1,19 @@
+# Smithery configuration file
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - nsApiKey
+    properties:
+      nsApiKey:
+        type: string
+        description: The API key for the NS (Nederlandse Spoorwegen) server.
+  commandFunction: |
+    (config) => ({
+      command: 'node',
+      args: ['build/index.js'],
+      env: {
+        NS_API_KEY: config.nsApiKey
+      }
+    })

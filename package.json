@@ -1,0 +1,36 @@
+{
+  "name": "ns-mcp-server",
+  "version": "0.1.6",
+  "description": "Transform your AI assistant into a Dutch railways expert! This MCP server connects Claude to real-time NS (Nederlandse Spoorwegen) travel information, making it your perfect companion for navigating the Netherlands by train.",
+  "private": false,
+  "type": "module",
+  "bin": {
+    "ns-mcp-server": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.6.0",
+    "axios": "^1.7.9",
+    "axios-retry": "^4.1.0",
+    "bottleneck": "^2.19.5",
+    "dotenv": "^16.4.7",
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^20.11.24",
+    "axios": "^1.7.9",
+    "axios-retry": "^4.1.0",
+    "bottleneck": "^2.19.5",
+    "dotenv": "^16.4.7",
+    "typescript": "^5.7.2"
+  }
+}
